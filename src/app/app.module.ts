@@ -9,10 +9,13 @@ import { GooglePlus } from '@ionic-native/google-plus';
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseServiceProvider} from '../providers/firebase-service/firebase-service';
 import firebase from 'firebase';
 
 import { MyApp } from './app.component';
+
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 
 /*team*/
@@ -34,6 +37,7 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
     
     /*team*/
@@ -45,11 +49,13 @@ firebase.initializeApp(firebaseConfig);
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
     /*team*/
     TeamPage,
